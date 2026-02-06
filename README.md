@@ -78,7 +78,7 @@ ai-language-translator-web/
 - 📱 Mobile app version
 - 🔐 User authentication
 
-##👨‍🎓 Author
+## 👨‍🎓 Author
 
 Nikhil Kumar
 🎓 B.Tech – Computer Science & Engineering (AI)
