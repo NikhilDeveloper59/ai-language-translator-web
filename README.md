@@ -63,3 +63,25 @@ ai-language-translator-web/
 ├── requirements.txt # Dependencies
 └── README.md
 ```
+---
+
+**🧪 How It Works**
+1) User enters text or uses voice input
+2) Source language is auto-detected
+3)Target language is selected
+4)Backend processes translation
+5)Output is displayed instantly
+
+**🔮 Future Enhancements**
+- 🤖 AI/NLP Transformer-based translation
+- ☁️ Cloud deployment (AWS / Render)
+- 📱 Mobile app version
+- 🔐 User authentication
+
+##👨‍🎓 Author
+
+Nikhil Kumar
+🎓 B.Tech – Computer Science & Engineering (AI)
+📍 India
+
+Aspiring Software Engineer / AI Engineer passionate about building real-world applications.
