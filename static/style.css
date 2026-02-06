@@ -1,0 +1,723 @@
+/* =========================
+   GLOBAL RESET & VARIABLES
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* ---------- Theme Variables ---------- */
+body.dark-theme {
+    --bg-main: #0f172a;
+    --bg-card: #111827;
+    --bg-panel: #1f2933;
+    --text-primary: #e5e7eb;
+    --text-secondary: #9ca3af;
+    --border-color: #374151;
+    --accent: #3b82f6;
+    --shadow: rgba(0, 0, 0, 0.6);
+}
+
+body.light-theme {
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-panel: #f1f5f9;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --border-color: #cbd5f5;
+    --accent: #2563eb;
+    --shadow: rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- Body ---------- */
+body {
+    background: var(--bg-main);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+
+.app-header {
+    max-width: 1200px;
+    margin: auto;
+    background: var(--bg-card);
+    padding: 15px 25px;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.app-header h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+#themeToggle {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 10px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+    position: absolute;
+    right: 20px;
+}
+
+#themeToggle:hover {
+    background: var(--accent);
+    color: #FBCEB1;
+}
+
+/* =========================
+   MAIN CONTAINER
+   ========================= */
+
+.translator-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    display: flex;
+    align-items: stretch;
+    gap: 15px;
+}
+
+/* ---------- Panels ---------- */
+.panel {
+    flex: 1;
+    background: var(--bg-card);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px var(--shadow);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.panel:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.65);
+}
+
+/* ---------- Textareas ---------- */
+textarea {
+    margin-top: 12px;
+    width: 100%;
+    height: 180px;
+    resize: none;
+    background: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 15px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: border 0.3s ease,box-shadow 0.3s ease,transform 0.3s ease;
+}
+textarea:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.25);
+}
+
+textarea::placeholder {
+    color: var(--text-secondary);
+}
+
+/* =========================
+   ACTION BAR
+   ========================= */
+
+.action-bar {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.action-bar button {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.action-bar button:hover {
+    color: var(--accent);
+}
+
+.char-count {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* =========================
+   SWAP SECTION
+   ========================= */
+
+.swap-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#swapLanguages {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 6px 20px var(--shadow);
+    transition: 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#swapLanguages:hover {
+    transform: rotate(180deg) scale(1.08);
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.35);
+}
+
+/* =========================
+   TRANSLATE BUTTON
+   ========================= */
+
+.translate-btn-wrapper {
+    max-width: 1200px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#translateBtn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 14px 40px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px var(--shadow);
+    transition: 0.3s;
+}
+
+#translateBtn:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+   ========================= */
+
+@media (max-width: 900px) {
+    .translator-container {
+        flex-direction: column;
+    }
+
+    .swap-section {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    textarea {
+        height: 150px;
+    }
+
+    .app-header h1 {
+        font-size: 1.3rem;
+    }
+
+    #translateBtn {
+        width: 100%;
+    }
+}
+
+/* ===============================
+   LANGUAGE SEARCH MODAL
+   =============================== */
+
+.language-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* ---------- Modal Box ---------- */
+.language-modal .modal-content {
+    width: 100%;
+    max-width: 520px;
+    height: 80vh;
+    background: var(--bg-card);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: modalFadeIn 0.25s ease;
+}
+
+/* ---------- Search Bar ---------- */
+#langSearch {
+    width: 100%;
+    padding: 16px 18px;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    background: var(--bg-panel);
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+#langSearch::placeholder {
+    color: var(--text-secondary);
+}
+
+/* ---------- Language List ---------- */
+#languageList {
+    list-style: none;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* Custom scrollbar */
+#languageList::-webkit-scrollbar {
+    width: 6px;
+}
+
+#languageList::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 10px;
+}
+
+/* ---------- Language Item ---------- */
+#languageList li {
+    padding: 14px 20px;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+/* ===============================
+   MOBILE STYLE (SLIDE UP)
+   =============================== */
+
+@media (max-width: 600px) {
+
+    .language-modal {
+        align-items: flex-end;
+    }
+
+    .language-modal .modal-content {
+        max-width: 100%;
+        height: 85vh;
+        border-radius: 20px 20px 0 0;
+        animation: slideUp 0.3s ease;
+    }
+}
+
+/* ===============================
+   ANIMATIONS
+   =============================== */
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+
+/* ===============================
+   RECENT LANGUAGES SECTION
+   =============================== */
+
+/* Section Titles */
+.lang-section-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    padding: 12px 20px 6px;
+    text-transform: uppercase;
+    cursor: default;
+}
+
+/* Divider line */
+.lang-divider {
+    height: 1px;
+    margin: 8px 0;
+    background: var(--border-color);
+    pointer-events: none;
+}
+
+/* Recent Language Item */
+.recent-lang {
+    font-weight: 600;
+    color: var(--accent);
+    background: linear-gradient(
+        to right,
+        rgba(59, 130, 246, 0.08),
+        transparent
+    );
+}
+
+/* Hover effect for all languages */
+#languageList li:not(.lang-section-title):not(.lang-divider):hover {
+    background: var(--bg-panel);
+}
+
+/* Active click feedback */
+#languageList li:active {
+    transform: scale(0.98);
+}
+
+/* ===============================
+   MOBILE OPTIMIZATION
+   =============================== */
+
+@media (max-width: 600px) {
+    .lang-section-title {
+        font-size: 0.75rem;
+        padding: 14px 18px 6px;
+    }
+
+    #languageList li {
+        padding: 16px 18px;
+        font-size: 1rem;
+    }
+}
+
+
+/* ===============================
+   CHECKMARK (SELECTED LANGUAGE)
+   =============================== */
+
+/* Align language item content */
+#languageList li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Checkmark style */
+.checkmark {
+    font-size: 1rem;
+    color: var(--accent);
+    font-weight: 700;
+    margin-left: 12px;
+}
+
+/* Recent language checkmark slightly bolder */
+.recent-lang .checkmark {
+    font-size: 1.05rem;
+}
+
+/* Smooth appearance */
+.checkmark {
+    animation: checkFade 0.2s ease-in;
+}
+
+/* ===============================
+   MOBILE FRIENDLY
+   =============================== */
+
+@media (max-width: 600px) {
+    .checkmark {
+        font-size: 1.1rem;
+    }
+}
+
+/* ===============================
+   ANIMATION
+   =============================== */
+
+@keyframes checkFade {
+    from {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* ===============================
+   LANGUAGE MODAL HEADER
+   =============================== */
+
+.language-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Title in center */
+.language-modal-header .modal-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Common button style */
+.language-modal-header button {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 50%;
+    transition: all 0.25s ease;
+}
+
+/* Hover effect */
+.language-modal-header button:hover {
+    background: var(--bg-panel);
+    color: var(--accent);
+}
+
+/* Active (press) effect */
+.language-modal-header button:active {
+    transform: scale(0.9);
+}
+
+/* ===============================
+   MOBILE OPTIMIZATION
+   =============================== */
+
+@media (max-width: 600px) {
+    .language-modal-header {
+        padding: 16px 14px;
+    }
+
+    .language-modal-header .modal-title {
+        font-size: 1.05rem;
+    }
+
+    .language-modal-header button {
+        font-size: 1.25rem;
+    }
+}
+
+
+/* ===============================
+   MOBILE SWAP ARROW FIX
+   =============================== */
+
+@media (max-width: 900px) {
+
+    /* Make container vertical (already done, reinforcing UX) */
+    .translator-container {
+        flex-direction: column;
+    }
+
+    /* Center swap section */
+    .swap-section {
+        margin: 12px 0;
+    }
+
+    /* Rotate swap icon for mobile (↔ → ↕) */
+    #swapLanguages i {
+        transform: rotate(90deg);
+        transition: transform 0.3s ease;
+    }
+
+    /* Increase touch size */
+    #swapLanguages {
+        padding: 16px;
+    }
+}
+
+
+
+/* ===============================
+   CUSTOM LANGUAGE BUTTON (MATCH SELECT STYLE)
+   =============================== */
+
+.language-select button {
+    width: 100%;
+    background: var(--bg-panel);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+/* Hover */
+.language-select button:hover {
+    border-color: var(--accent);
+}
+
+/* Active / Click */
+.language-select button:active {
+    transform: scale(0.98);
+}
+
+/* Add dropdown arrow icon effect */
+.language-select button::after {
+    content: "▾";
+    float: right;
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+
+/* Style footer section */
+.footer {
+    /* background: #0b1220;
+    color: #cbd5e1; */
+    padding: 40px 20px 20px;
+    margin-top: 60px;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.footer h3,
+.footer h4 {
+    color: #E0FFFF;
+    margin-bottom: 12px;
+}
+
+.footer p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #38bdf8;
+}
+
+.footer-social .social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social a {
+    color: #94a3b8;
+    font-size: 18px;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.footer-social a:hover {
+    color: #38bdf8;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    border-top: 1px solid #1e293b;
+    margin-top: 30px;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+.footer-bottom span {
+    color: #38bdf8;
+    font-weight: 500;
+}
+
+/* =====================================
+   THEME-AWARE FOOTER FIX
+   ===================================== */
+
+
+body.dark-theme .footer {
+    background: #0b1220;
+    color:#E0FFFF;
+}
+
+body.light-theme .footer {
+    background: #E0FFFF;
+    color: #0f172a;
+    border-top: 1px solid #E0FFFF;
+}
+
+body.light-theme .footer h3,
+body.light-theme .footer h4 {
+    color: #0f172a;
+}
+
+body.light-theme .footer-links a {
+    color: #475569;
+}
+
+body.light-theme .footer-links a:hover {
+    color: #2563eb;
+}
+
+body.light-theme .footer-social a {
+    color: #475569;
+}
+
+body.light-theme .footer-social a:hover {
+    color: #2563eb;
+}
+
+body.light-theme .footer-bottom {
+    color: #475569;
+    border-top: 1px solid #E0FFFF;
+}

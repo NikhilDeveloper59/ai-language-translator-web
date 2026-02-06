@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Language Translator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body class="dark-theme">
+
+<!-- ===== Header ===== -->
+<header class="app-header">
+    <h1>🌐 Language Translator</h1>
+    <button id="themeToggle">
+        <i class="fa-solid fa-moon"></i>
+    </button>
+</header>
+
+<!-- ===== Main Container ===== -->
+<main class="translator-container">
+
+    <!-- INPUT PANEL -->
+    <section class="panel input-panel">
+
+        <div class="language-select">
+            <button id="openSourceLang">Detect Language</button>
+            <select id="sourceLanguage" hidden></select>
+        </div>
+
+        <textarea id="inputText" placeholder="Enter text here..."></textarea>
+
+        <div class="action-bar">
+            <button><i class="fa-solid fa-volume-high"></i></button>
+            <button><i class="fa-solid fa-microphone"></i></button>
+            <span class="char-count">0 / 5000</span>
+        </div>
+    </section>
+
+    <!-- SWAP -->
+    <div class="swap-section">
+        <button id="swapLanguages">
+            <i class="fa-solid fa-right-left"></i>
+        </button>
+    </div>
+
+    <!-- OUTPUT PANEL -->
+    <section class="panel output-panel">
+
+        <div class="language-select">
+            <button id="openTargetLang">English</button>
+            <select id="targetLanguage" hidden></select>
+        </div>
+
+        <textarea id="outputText"
+                  placeholder="Translated text will appear here..."
+                  readonly></textarea>
+
+        <div class="action-bar">
+            <button id="copyBtn"><i class="fa-regular fa-copy"></i></button>
+            <button id="speakBtn"><i class="fa-solid fa-volume-high"></i></button>
+        </div>
+    </section>
+</main>
+
+<!-- TRANSLATE BUTTON -->
+<div class="translate-btn-wrapper">
+    <button id="translateBtn">Translate</button>
+</div>
+
+<!-- ===== LANGUAGE MODAL ===== -->
+<div class="language-modal" id="languageModal">
+    <div class="modal-content">
+
+        <div class="language-modal-header">
+            <button id="closeLangModal">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <span class="modal-title">Select Language</span>
+            <span></span>
+        </div>
+
+        <input type="text" id="langSearch" placeholder="Search language...">
+
+        <ul id="languageList"></ul>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-container">
+
+        <!-- Left Section -->
+        <div class="footer-brand">
+            <h3>Language Translator</h3>
+            <p>Translate text instantly between multiple languages with accuracy and speed.</p>
+        </div>
+
+        <!-- Middle Section -->
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Right Section -->
+        <div class="footer-social">
+            <h4>Connect</h4>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/nikhil-kumar-ab451018b" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/NikhilDeveloper59" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/its_nikhil_ns/" target="_blank"><i class="fab fa-instagram"></i>
+                <a href="mailto:nraaz590@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+        </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Language Translator | Built by💖<span>Nikhil Kumar</span>
+    </div>
+</footer>
+
+
+<script src="static/script.js"></script>
+</body>
+</html>
